@@ -18,3 +18,9 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    node_path: /usr/bin/node
+    spbower_path: /usr/local/bin/bower
+    uglify_css_path: /usr/local/bin/uglifycss
+    uglify_js_path: /usr/local/bin/uglifyjs
+    
