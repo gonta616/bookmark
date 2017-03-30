@@ -14,5 +14,13 @@
         </div>
     </div>
     {% endblock %}
+    {% block javascript %}
+    {% javascripts
+        "@bootstrap_js"
+        "@jquery_js"
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% endblock %}
 </body>
 </html>

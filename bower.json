@@ -1,0 +1,22 @@
+{
+  "name": "symfony-playground",
+  "homepage": "https://github.com/gonta616/symfony-playground",
+  "authors": [
+    "gonta616 <gongongonta616@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7"
+  }
+}

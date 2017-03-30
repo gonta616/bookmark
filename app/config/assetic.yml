@@ -1,0 +1,21 @@
+sp_bower:
+    bin: "%spbower_path%"
+    install_on_warmup: true
+    bundles:
+        AppBundle:
+            config_dir: "%kernel.root_dir%/../"
+            asset_dir: "%kernel.root_dir%/../bower_components"
+            cache:
+                id: ~
+                directory: "%kernel.root_dir%/../var/cache"                
+
+assetic:
+    bundles: [AppBundle]
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        uglifyjs2:
+            bin: "%uglify_js_path%"
+        uglifycss:
+            bin: "%uglify_css_path%"
+        cssrewrite: ~
