@@ -18,9 +18,63 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Blog" , mappedBy="user", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    protected $blog;
+
     public function __construct()
     {
         parent::__construct();
         // your own logic
     }
+
+    /**
+     * Get the value of Id
+     *
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of Id
+     *
+     * @param mixed id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Blog
+     *
+     * @return mixed
+     */
+    public function getBlog()
+    {
+        return $this->blog;
+    }
+
+    /**
+     * Set the value of Blog
+     *
+     * @param mixed blog
+     *
+     * @return self
+     */
+    public function setBlog($blog)
+    {
+        $this->blog = $blog;
+
+        return $this;
+    }
+
 }
