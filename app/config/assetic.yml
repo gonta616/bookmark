@@ -1,13 +1,19 @@
 sp_bower:
     bin: "%spbower_path%"
     install_on_warmup: true
+    assetic:
+        enabled: true
+        nest_dependencies: false
+        filters:
+            css:
+                - cssrewrite
     bundles:
         AppBundle:
             config_dir: "%kernel.root_dir%/../"
             asset_dir: "%kernel.root_dir%/../bower_components"
             cache:
                 id: ~
-                directory: "%kernel.root_dir%/../var/cache"                
+                directory: "%kernel.root_dir%/../var/cache"
 
 assetic:
     bundles: [AppBundle]
@@ -19,3 +25,15 @@ assetic:
         uglifycss:
             bin: "%uglify_css_path%"
         cssrewrite: ~
+    assets:
+        template_css:
+            inputs:
+                - '%kernel.root_dir%/../bower_components/bootstrap/dist/css/bootstrap.css'
+
+        template_js:
+            inputs:
+                - '@bootstrap_js'
+                - '@jquery_js'
+        #font font_awesome
+        font_awesome_css:
+            inputs: '%kernel.root_dir%/../bower_components/font-awesome/css/font-awesome.css'

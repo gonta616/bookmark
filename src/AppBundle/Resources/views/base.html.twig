@@ -6,10 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
     <title>Document</title>
     {% block stylesheets %}
-    {%- stylesheets
-        "@font_awesome_css"
-    -%}
-        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% stylesheets
+        '@font_awesome_css'
+        '@template_css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
     {% endblock %}
 </head>
 <body>
@@ -22,8 +24,7 @@
     {% endblock %}
     {% block javascript %}
     {% javascripts
-        "@bootstrap_js"
-        "@jquery_js"
+        "@template_js"
     %}
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
