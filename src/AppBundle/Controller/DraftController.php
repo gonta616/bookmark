@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Item;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -15,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 class DraftController extends Controller
 {
     /**
-     * @Route("/{userId}", name="drafts_index")
+     * @Route("/", name="draft_index")
      * @Method("GET")
      * @Template
      */
@@ -30,6 +31,16 @@ class DraftController extends Controller
      * @Template
      */
     public function createAction(Request $request)
+    {
+        return;
+    }
+
+    /**
+     * @Route("/update/{item}", name="draft_upload")
+     * @Method("GET")
+     * @Template
+     */
+    public function updateAction(Request $request, Item $item)
     {
         return;
     }

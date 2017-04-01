@@ -11,15 +11,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class UserController extends Controller
 {
-    /**
-     * @Route("/login", name="user_login")
-     * @Method("GET")
-     * @Template("@App/User/login.html.twig")
-     */
-    public function loginAction(Request $request)
-    {
-        return;
-    }
 
     /**
      * @Route("/create", name="user_create")

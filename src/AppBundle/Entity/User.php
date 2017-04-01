@@ -19,9 +19,9 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Blog" , mappedBy="user", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Item" , mappedBy="user", cascade={"persist", "remove"}, orphanRemoval=true)
      */
-    protected $blog;
+    protected $item;
 
     public function __construct()
     {
@@ -54,25 +54,25 @@ class User extends BaseUser
     }
 
     /**
-     * Get the value of Blog
+     * Get the value of Item
      *
      * @return mixed
      */
-    public function getBlog()
+    public function getItem()
     {
-        return $this->blog;
+        return $this->item;
     }
 
     /**
-     * Set the value of Blog
+     * Set the value of Item
      *
-     * @param mixed blog
+     * @param mixed item
      *
      * @return self
      */
-    public function setBlog($blog)
+    public function setItem($item)
     {
-        $this->blog = $blog;
+        $this->item = $item;
 
         return $this;
     }

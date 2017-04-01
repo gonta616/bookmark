@@ -13,7 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity()
  * @ExclusionPolicy("all")
  */
-class Blog
+class Item
 {
     const STATUS_DELETED = -1;
     const STATUS_ACTIVE = 0;
@@ -39,7 +39,7 @@ class Blog
     /**
      * @ORM\Column(type="integer")
      */
-    protected $status=Blog::STATUS_ACTIVE;
+    protected $status=Item::STATUS_ACTIVE;
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="user")
