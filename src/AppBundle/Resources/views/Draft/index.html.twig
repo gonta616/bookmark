@@ -1,0 +1,25 @@
+{% extends '@App/base.html.twig' %}
+
+{% block content %}
+<div class="content">
+    test
+</div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+        '@AppBundle/Resources/public/app/css/draft/index.css'
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+    {% javascripts
+        '@AppBundle/Resources/public/app/js/draft/index.js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

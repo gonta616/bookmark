@@ -19,7 +19,7 @@ class DraftController extends Controller
     /**
      * @Route("/", name="draft_index")
      * @Method("GET")
-     * @Template
+     * @Template("@App/Draft/index.html.twig")
      */
     public function indexAction(Request $request)
     {
@@ -29,12 +29,12 @@ class DraftController extends Controller
     /**
      * @Route("/create", name="draft_create")
      * @Method("GET")
-     * @Template
+     * @Template("@App/Draft/form.html.twig")
      */
     public function createAction(Request $request)
     {
         return array('form'=>$this->createForm(ItemType::class, new Item(), array(
-            'action' => $this->generateUrl('post_item'),
+            'action' => $this->generateUrl('post_draft'),
             'method' => 'POST'
         ))->createView());
     }

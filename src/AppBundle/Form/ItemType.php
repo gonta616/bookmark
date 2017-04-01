@@ -23,6 +23,7 @@ class ItemType extends AbstractType
             ->add('save', SubmitType::class, array(
                 'label' => 'item.save'
             ))
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
