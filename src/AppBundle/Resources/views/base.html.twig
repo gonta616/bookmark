@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
     <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    {% set baseURL = absolute_url('/') -%}
+    <meta name="url" content="{{ baseURL }}" />
+    <meta name="author" content="Gonjo Kazuya" />
     <title>Document</title>
     {% block stylesheets %}
     {% stylesheets
@@ -15,6 +22,9 @@
     {% endblock %}
 </head>
 <body>
+    <header>
+
+    </header>
     {% block content_wrapper %}
     <div class="content">
         <div class="container">
@@ -22,6 +32,28 @@
         </div>
     </div>
     {% endblock %}
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <ul class="listed-articles row">
+                        <li>
+                            <div class="col s12 m6 l4"><a href="#">Link 1</a></div>
+                        </li>
+                        <li>
+                            <div class="col s12 m6 l4"><a href="#">Link 2</a></div>
+                        </li>
+                        <li>
+                            <div class="col s12 m6 l4"><a href="#">Link 3</a></div>
+                        </li>
+                        <li>
+                            <div class="col s12 m6 l4"><a href="#">Link 4</a></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
     {% block javascript %}
     {% javascripts
         "@template_js"

@@ -47,6 +47,16 @@ fos_user:
         address:        "%mailer_mail%"
         sender_name:    "%mailer_name%"
 
+# FOSRestBundle
+fos_rest:
+    routing_loader:
+        default_format: json
+        include_format: false
+    view:
+        view_response_listener: 'force'
+    disable_csrf_role: ROLE_API # give this role to users who accesses api from external sources
+
+
 # Twig Configuration
 twig:
     debug:            "%kernel.debug%"

@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Item;
+use AppBundle\Form\ItemType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -32,7 +33,10 @@ class DraftController extends Controller
      */
     public function createAction(Request $request)
     {
-        return;
+        return array('form'=>$this->createForm(ItemType::class, new Item(), array(
+            'action' => $this->generateUrl('post_item'),
+            'method' => 'POST'
+        ))->createView());
     }
 
     /**
