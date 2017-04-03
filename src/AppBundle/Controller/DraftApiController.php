@@ -21,7 +21,7 @@ class DraftApiController extends FOSRestController
 
         if ($form->isValid()) {
             $item->setUser($this->getUser());
-            return $this->get('news_util')->post($item);
+            return $this->get('draft_util')->post($item);
         }
         else {
             return $item;
