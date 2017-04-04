@@ -43,6 +43,11 @@ class Item
     protected $status=Item::STATUS_ACTIVE;
 
     /**
+     * @ORM\OneToMany(targetEntity="Comment" , mappedBy="item", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    protected $comments;
+
+    /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="user")
      */
     protected $user;
