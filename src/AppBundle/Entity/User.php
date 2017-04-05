@@ -21,7 +21,17 @@ class User extends BaseUser
     /**
      * @ORM\OneToMany(targetEntity="Item" , mappedBy="user", cascade={"persist", "remove"}, orphanRemoval=true)
      */
-    protected $item;
+    protected $items;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Comment" , mappedBy="user", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    protected $commnets;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Request" , mappedBy="user", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    protected $requests;
 
     public function __construct()
     {
@@ -73,6 +83,79 @@ class User extends BaseUser
     public function setItem($item)
     {
         $this->item = $item;
+
+        return $this;
+    }
+
+
+    /**
+     * Get the value of Items
+     *
+     * @return mixed
+     */
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+    /**
+     * Set the value of Items
+     *
+     * @param mixed items
+     *
+     * @return self
+     */
+    public function setItems($items)
+    {
+        $this->items = $items;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Commnets
+     *
+     * @return mixed
+     */
+    public function getCommnets()
+    {
+        return $this->commnets;
+    }
+
+    /**
+     * Set the value of Commnets
+     *
+     * @param mixed commnets
+     *
+     * @return self
+     */
+    public function setCommnets($commnets)
+    {
+        $this->commnets = $commnets;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Requests
+     *
+     * @return mixed
+     */
+    public function getRequests()
+    {
+        return $this->requests;
+    }
+
+    /**
+     * Set the value of Requests
+     *
+     * @param mixed requests
+     *
+     * @return self
+     */
+    public function setRequests($requests)
+    {
+        $this->requests = $requests;
 
         return $this;
     }

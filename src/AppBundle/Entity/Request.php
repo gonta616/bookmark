@@ -2,7 +2,6 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use JMS\Serializer\Annotation\ExclusionPolicy;
@@ -13,9 +12,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity()
  * @ExclusionPolicy("all")
  */
-class Comment
+class Request
 {
-
     function __construct(argument)
     {
         # code...
@@ -32,7 +30,7 @@ class Comment
     /**
      * @ORM\Column(type="text")
      */
-    protected $comment;
+    protected $request;
 
     /**
      * * @ORM\Column(type="datetime")
@@ -45,12 +43,7 @@ class Comment
     protected $updateDate;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Item", insertBy="comments")
-     */
-    protected $item;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="User", insertBy="comments")
+     * @ORM\ManyToOne(targetEntity="User", insertBy="requests")
      */
     protected $user;
 
@@ -79,25 +72,25 @@ class Comment
     }
 
     /**
-     * Get the value of Comment
+     * Get the value of Request
      *
      * @return mixed
      */
-    public function getComment()
+    public function getRequest()
     {
-        return $this->comment;
+        return $this->request;
     }
 
     /**
-     * Set the value of Comment
+     * Set the value of Request
      *
-     * @param mixed comment
+     * @param mixed request
      *
      * @return self
      */
-    public function setComment($comment)
+    public function setRequest($request)
     {
-        $this->comment = $comment;
+        $this->request = $request;
 
         return $this;
     }
@@ -146,30 +139,6 @@ class Comment
     public function setUpdateDate($updateDate)
     {
         $this->updateDate = $updateDate;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of Item
-     *
-     * @return mixed
-     */
-    public function getItem()
-    {
-        return $this->item;
-    }
-
-    /**
-     * Set the value of Item
-     *
-     * @param mixed item
-     *
-     * @return self
-     */
-    public function setItem($item)
-    {
-        $this->item = $item;
 
         return $this;
     }
