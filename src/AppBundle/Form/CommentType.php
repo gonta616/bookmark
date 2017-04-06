@@ -8,16 +8,16 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class ItemType extends AbstractType
+class RequestType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', null, array(
-                'label' => 'item.title'
+            ->add('type', null, array(
+                'label' => 'request.type'
             ))
-            ->add('content', TextareaType::class, array(
-                'label' => 'item.content'
+            ->add('request', null, array(
+                'label' => 'request.request'
             ))
             ->add('save', SubmitType::class, array(
                 'label' => 'item.save'
@@ -28,7 +28,7 @@ class ItemType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Item',
+            'data_class' => 'AppBundle\Entity\Commnet',
         ));
     }
 }

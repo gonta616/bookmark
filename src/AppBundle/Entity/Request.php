@@ -28,6 +28,11 @@ class Request
     protected $id;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+     protected $type;
+
+    /**
      * @ORM\Column(type="text")
      */
     protected $request;
@@ -67,6 +72,30 @@ class Request
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Type
+     *
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set the value of Type
+     *
+     * @param mixed type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
 
         return $this;
     }
@@ -166,5 +195,4 @@ class Request
 
         return $this;
     }
-
 }
