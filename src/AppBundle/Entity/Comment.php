@@ -16,11 +16,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Comment
 {
 
-    function __construct(argument)
-    {
-        # code...
-    }
-
     /**
      * @ORM\Id
      * @ORM\Column(type="bigint")

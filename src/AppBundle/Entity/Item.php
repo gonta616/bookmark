@@ -48,6 +48,11 @@ class Item
     protected $comments;
 
     /**
+     * @ORIM\Column(type="boolean")
+     */
+    protected $isStudy;
+
+    /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="user")
      */
     protected $user;

@@ -14,11 +14,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Request
 {
-    function __construct(argument)
-    {
-        # code...
-    }
-
     /**
      * @ORM\Id
      * @ORM\Column(type="bigint")

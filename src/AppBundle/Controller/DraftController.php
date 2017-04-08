@@ -19,7 +19,7 @@ class DraftController extends Controller
     /**
      * @Route("/", name="draft_index")
      * @Method("GET")
-     * @Template("@App/Draft/index.html.twig")
+     * @Template
      */
     public function indexAction(Request $request)
     {
@@ -29,7 +29,7 @@ class DraftController extends Controller
     /**
      * @Route("/create", name="draft_create")
      * @Method("GET")
-     * @Template("@App/Draft/form.html.twig")
+     * @Template
      */
     public function createAction(Request $request)
     {
