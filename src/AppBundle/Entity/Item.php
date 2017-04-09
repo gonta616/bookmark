@@ -48,7 +48,7 @@ class Item
     protected $comments;
 
     /**
-     * @ORIM\Column(type="boolean")
+     * @ORM\Column(type="boolean")
      */
     protected $isStudy;
 

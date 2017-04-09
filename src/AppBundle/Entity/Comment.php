@@ -40,12 +40,12 @@ class Comment
     protected $updateDate;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Item", insertBy="comments")
+     * @ORM\ManyToOne(targetEntity="Item", inversedBy="comments")
      */
     protected $item;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", insertBy="comments")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="comments")
      */
     protected $user;
 

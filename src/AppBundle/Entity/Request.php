@@ -43,7 +43,7 @@ class Request
     protected $updateDate;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", insertBy="requests")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="requests")
      */
     protected $user;
 
