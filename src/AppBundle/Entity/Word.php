@@ -2,7 +2,6 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use JMS\Serializer\Annotation\ExclusionPolicy;
@@ -11,12 +10,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity()
- * @ORM\Entity(repositoryClass="AppBundle\Repository\TermRepository")
  * @ExclusionPolicy("all")
  */
-class Term
+class Word
 {
-
     /**
      * @ORM\Id
      * @ORM\Column(type="bigint")
@@ -26,26 +23,14 @@ class Term
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Taxonomy", inversedBy="terms", cascade={"persist", "remove"}, fetch="EAGER")
-     */
-    protected $taxonomy;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="form.not_blank")
-     * @Expose
+     * @ORM\Column(type="text")
      */
     protected $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Bookmark", mappedBy="terms")
+     * @ORM\Column(type="text")
      */
-    private $bookmarks;
-
-    public function __construct()
-    {
-        $this->bookmarks = new ArrayCollection();
-    }
+    protected $translation;
 
     /**
      * Get the value of Id
@@ -67,30 +52,6 @@ class Term
     public function setId($id)
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of Taxonomy
-     *
-     * @return mixed
-     */
-    public function getTaxonomy()
-    {
-        return $this->taxonomy;
-    }
-
-    /**
-     * Set the value of Taxonomy
-     *
-     * @param mixed taxonomy
-     *
-     * @return self
-     */
-    public function setTaxonomy($taxonomy)
-    {
-        $this->taxonomy = $taxonomy;
 
         return $this;
     }
@@ -118,5 +79,30 @@ class Term
 
         return $this;
     }
+
+    /**
+     * Get the value of Translation
+     *
+     * @return mixed
+     */
+    public function getTranslation()
+    {
+        return $this->translation;
+    }
+
+    /**
+     * Set the value of Translation
+     *
+     * @param mixed translation
+     *
+     * @return self
+     */
+    public function setTranslation($translation)
+    {
+        $this->translation = $translation;
+
+        return $this;
+    }
+
 
 }

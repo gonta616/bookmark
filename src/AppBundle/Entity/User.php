@@ -19,6 +19,11 @@ class User extends BaseUser
     protected $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="Bookmark" , mappedBy="user", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    protected $bookmarks;
+
+    /**
      * @ORM\OneToMany(targetEntity="Item" , mappedBy="user", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     protected $items;
@@ -87,31 +92,6 @@ class User extends BaseUser
         return $this;
     }
 
-
-    /**
-     * Get the value of Items
-     *
-     * @return mixed
-     */
-    public function getItems()
-    {
-        return $this->items;
-    }
-
-    /**
-     * Set the value of Items
-     *
-     * @param mixed items
-     *
-     * @return self
-     */
-    public function setItems($items)
-    {
-        $this->items = $items;
-
-        return $this;
-    }
-
     /**
      * Get the value of Commnets
      *
@@ -156,6 +136,30 @@ class User extends BaseUser
     public function setRequests($requests)
     {
         $this->requests = $requests;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Bookmarks
+     *
+     * @return mixed
+     */
+    public function getBookmarks()
+    {
+        return $this->bookmarks;
+    }
+
+    /**
+     * Set the value of Bookmarks
+     *
+     * @param mixed bookmarks
+     *
+     * @return self
+     */
+    public function setBookmarks($bookmarks)
+    {
+        $this->bookmarks = $bookmarks;
 
         return $this;
     }
