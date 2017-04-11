@@ -34,7 +34,7 @@ class BookmarkType extends AbstractType
                 'prototype'     => true,
                 'required'      => true,
                 'attr'          => array(
-                    'class' => 'partner-ad-translation-collection',
+                    'class' => 'word-collection',
                 ),
             )
             ->add('save', SubmitType::class, array(

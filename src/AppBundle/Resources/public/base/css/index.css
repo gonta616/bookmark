@@ -1,0 +1,8 @@
+body {
+    background-color: #fafafa!important;
+}
+
+.max-width {
+    width: 1024px;
+    box-sizing: border-box;
+}

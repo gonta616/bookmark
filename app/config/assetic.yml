@@ -16,7 +16,7 @@ sp_bower:
                 directory: "%kernel.root_dir%/../var/cache"
 
 assetic:
-    bundles: [AppBundle]
+    bundles: [AppBundle, FOSUserBundle]
     debug:          '%kernel.debug%'
     use_controller: '%kernel.debug%'
     filters:
@@ -29,6 +29,7 @@ assetic:
         template_css:
             inputs:
                 - '%kernel.root_dir%/../bower_components/bootstrap/dist/css/bootstrap.css'
+                - '@AppBundle/Resources/public/base/css/index.css'
 
         template_js:
             inputs:
