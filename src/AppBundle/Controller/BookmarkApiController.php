@@ -16,11 +16,12 @@ use FOS\RestBundle\Controller\Annotations\RouteResource;
      public function postAction(Request $request)
      {
          $bookmark = new Bookmark();
-         $form = $this->createForm(BookmarkType::class, $item, array('method' => "POST"));
+         $form = $this->createForm(BookmarkType::class, $bookmark, array('method' => "POST"));
          $form->handleRequest($request);
 
          if ($form->isValid()) {
-             $form->setUser($this->getUser());
+             $bookmark->setUser($this->getUser());
+             $this->get('bookmark_util')->post($bookmark);
          }
          else {
              return $form;
@@ -29,11 +30,11 @@ use FOS\RestBundle\Controller\Annotations\RouteResource;
 
      public function patchAction(Request $request, Bookmark $Bookmark)
      {
-         $form = $this->createForm(BookmarkType::class, $item, array('method' => "PATCH"));
+         $form = $this->createForm(BookmarkType::class, $bookmark, array('method' => "PATCH"));
          $form->handleRequest($request);
 
          if ($form->isValid()){
-
+             $this->get('bookmark_util')->post($bookmark);
          }
          else {
              return $form;

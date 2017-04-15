@@ -33,6 +33,11 @@ class Word
     protected $translation;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Bookmark", inversedBy="words")
+     */
+    protected $bookmark;
+
+    /**
      * Get the value of Id
      *
      * @return mixed
@@ -104,5 +109,28 @@ class Word
         return $this;
     }
 
+    /**
+     * Get the value of Bookmark
+     *
+     * @return mixed
+     */
+    public function getBookmark()
+    {
+        return $this->bookmark;
+    }
+
+    /**
+     * Set the value of Bookmark
+     *
+     * @param mixed bookmark
+     *
+     * @return self
+     */
+    public function setBookmark($bookmark)
+    {
+        $this->bookmark = $bookmark;
+
+        return $this;
+    }
 
 }

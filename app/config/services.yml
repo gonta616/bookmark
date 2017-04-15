@@ -9,3 +9,10 @@ services:
         arguments:
             -
                 draft_per_page: "%draft_per_page%"
+
+    bookmark_util:
+        class: AppBundle\Util\BookmarkUtil
+        autowire: true
+        arguments:
+            -
+                bookmark_per_page: "%bookmark_per_page%"

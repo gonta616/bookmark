@@ -25,6 +25,7 @@ class BookmarkType extends AbstractType
                 'label'         => 'bookmark.terms',
                 'choice_label'  => 'id',
                 'multiple'      => true,
+                'required'      => false,
                 'class'         => 'AppBundle:Term'
             ))
             ->add('words', CollectionType::class, array(
@@ -32,7 +33,7 @@ class BookmarkType extends AbstractType
                 'allow_add'     => true,
                 'allow_delete'  => true,
                 'prototype'     => true,
-                'required'      => true,
+                'required'      => false,
                 'attr'          => array(
                     'class' => 'word-collection',
                 ),
