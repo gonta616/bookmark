@@ -2,8 +2,8 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Item;
-use AppBundle\Form\ItemType;
+use AppBundle\Entity\Bookmark;
+use AppBundle\Form\BookmarkType;
 use Goutte\Client;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -29,6 +29,32 @@ class BookmarkController extends Controller
             dump($domElement);
         }
         return;
+    }
+
+    /**
+     * @Route("/create")
+     * @Method("GET")
+     * @Template
+     */
+    public function createAction(Request $request)
+    {
+        return array('form'=>$this->createForm(BookmarkType::class, new Bookmark(), array(
+            'action' => $this->generateUrl('post_bookmark'),
+            'method' => 'POST'
+        ))->createView());
+    }
+
+    /**
+     * @Route("/update/{bookmark}")
+     * @Method("GET")
+     * @Template
+     */
+    public function updateAction(Request $request, Bookmark $bookmark)
+    {
+        return array('form'=>$this->createForm(BookmarkType::class, $bookmark, array(
+            'action' => $this->generateUrl('patch_bookmark'),
+            'method' => 'PATCH'
+        ))->createView());
     }
 
 }

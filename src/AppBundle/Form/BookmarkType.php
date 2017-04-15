@@ -27,8 +27,8 @@ class BookmarkType extends AbstractType
                 'multiple'      => true,
                 'class'         => 'AppBundle:Term'
             ))
-            ->add('word', CollectionType::class, array(
-                'entry_type' => Word::class,
+            ->add('words', CollectionType::class, array(
+                'entry_type' => WordType::class,
                 'allow_add'     => true,
                 'allow_delete'  => true,
                 'prototype'     => true,
@@ -36,9 +36,9 @@ class BookmarkType extends AbstractType
                 'attr'          => array(
                     'class' => 'word-collection',
                 ),
-            )
+            ))
             ->add('save', SubmitType::class, array(
-                'label' => 'item.save'
+                'label' => 'bookmark.save'
             ))
         ;
     }

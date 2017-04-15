@@ -11,7 +11,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity()
- * @ORM\Entity(repositoryClass="AppBundle\Repository\TermRepository")
  * @ExclusionPolicy("all")
  */
 class Term

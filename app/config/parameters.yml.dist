@@ -28,4 +28,4 @@ parameters:
     uglify_css_path: /usr/local/bin/uglifycss
     uglify_js_path: /usr/local/bin/uglifyjs
     item_per_page: 15
-    draft_per_page: 10        
+    draft_per_page: 10

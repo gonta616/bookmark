@@ -39,6 +39,11 @@ class Bookmark
     protected $terms;
 
     /**
+     * @ORM\OneToMany(targetEntity="Word" , mappedBy="item", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    protected $words;
+
+    /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="bookmarks")
      */
     protected $user;
@@ -51,6 +56,7 @@ class Bookmark
     public function __construct()
     {
         $this->terms = new ArrayCollection();
+        $this->words = new ArrayCollection();
     }
 
     /**
@@ -195,6 +201,30 @@ class Bookmark
     public function setImpression($impression)
     {
         $this->impression = $impression;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Words
+     *
+     * @return mixed
+     */
+    public function getWords()
+    {
+        return $this->words;
+    }
+
+    /**
+     * Set the value of Words
+     *
+     * @param mixed words
+     *
+     * @return self
+     */
+    public function setWords($words)
+    {
+        $this->words = $words;
 
         return $this;
     }

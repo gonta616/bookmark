@@ -38,12 +38,6 @@ class User extends BaseUser
      */
     protected $requests;
 
-    public function __construct()
-    {
-        parent::__construct();
-        // your own logic
-    }
-
     /**
      * Get the value of Id
      *

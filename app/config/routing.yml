@@ -22,3 +22,8 @@ draft:
     type:     rest
     resource: "@AppBundle/Controller/DraftApiController.php"
     prefix:   /api
+
+bookmark:
+    type:     rest
+    resource: "@AppBundle/Controller/BookmarkApiController.php"
+    prefix:   /api
