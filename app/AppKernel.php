@@ -20,6 +20,10 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new Sp\BowerBundle\SpBowerBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new Lexik\Bundle\FormFilterBundle\LexikFormFilterBundle(),
             new AppBundle\AppBundle(),
         ];
 

@@ -51,7 +51,12 @@ class Bookmark
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $publishedDateTime;
+    private $publishedDate;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updateDate;
 
     public function __construct()
     {
@@ -156,32 +161,6 @@ class Bookmark
     }
 
     /**
-     * Get the value of Published Date Time
-     *
-     * @return mixed
-     */
-    public function getPublishedDateTime()
-    {
-        return $this->publishedDateTime;
-    }
-
-    /**
-     * Set the value of Published Date Time
-     *
-     * @param mixed publishedDateTime
-     *
-     * @return self
-     */
-    public function setPublishedDateTime($publishedDateTime)
-    {
-        $this->publishedDateTime = $publishedDateTime;
-
-        return $this;
-    }
-
-
-
-    /**
      * Get the value of Impression
      *
      * @return mixed
@@ -225,6 +204,56 @@ class Bookmark
     public function setWords($words)
     {
         $this->words = $words;
+
+        return $this;
+    }
+
+
+    /**
+     * Get the value of Update Date
+     *
+     * @return mixed
+     */
+    public function getUpdateDate()
+    {
+        return $this->updateDate;
+    }
+
+    /**
+     * Set the value of Update Date
+     *
+     * @param mixed updateDate
+     *
+     * @return self
+     */
+    public function setUpdateDate($updateDate)
+    {
+        $this->updateDate = $updateDate;
+
+        return $this;
+    }
+
+
+    /**
+     * Get the value of Published Date
+     *
+     * @return mixed
+     */
+    public function getPublishedDate()
+    {
+        return $this->publishedDate;
+    }
+
+    /**
+     * Set the value of Published Date
+     *
+     * @param mixed publishedDate
+     *
+     * @return self
+     */
+    public function setPublishedDate($publishedDate)
+    {
+        $this->publishedDate = $publishedDate;
 
         return $this;
     }

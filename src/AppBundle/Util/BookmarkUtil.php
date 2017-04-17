@@ -16,6 +16,11 @@ class BookmarkUtil
         $this->em = $entityManager;
     }
 
+    public function getBookmark($page, $filter, $user_id = null)
+    {
+        $qb = $this->em->getRepository('AppBundle:Bookmark')->getBookmarkQueryBuilder($user_id);
+    }
+
     public function post($bookmark)
     {
         foreach ($bookmark->getWords() as $word) {
