@@ -26,6 +26,11 @@ class Bookmark
     /**
      * @ORM\Column(type="string", length=255)
      */
+    protected $title;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     protected $url;
 
     /**
@@ -84,6 +89,30 @@ class Bookmark
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Title
+     *
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set the value of Title
+     *
+     * @param mixed title
+     *
+     * @return self
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
 
         return $this;
     }
@@ -257,5 +286,4 @@ class Bookmark
 
         return $this;
     }
-
 }

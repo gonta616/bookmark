@@ -74,6 +74,13 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 
+# pagenation
+knp_paginator:
+    page_range: 5
+    template:
+        pagination: "@App/Default/knpPaginator.html.twig"
+
+
 # Doctrine Configuration
 doctrine:
     dbal:

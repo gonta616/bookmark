@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Bookmark;
 use AppBundle\Form\BookmarkType;
+use AppBundle\Form\Filter\BookmarkFilterType;
 use Goutte\Client;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -21,14 +22,17 @@ class BookmarkController extends Controller
      * @Method("GET")
      * @Template
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request, $page=1)
     {
-        $client = new Client();
-        $crawler = $client->request('GET', 'https://www.symfony.com/blog/');
-        foreach ($crawler as $domElement) {
-            dump($domElement);
-        }
-        return;
+        $filterForm = $this->createForm(BookmarkFilterType::class, null, array('method'=>'GET'))->handleRequest($request);
+        return array(
+            'filterForm'=>$filterForm->createView(),
+            'bookmarks' => $this->get('bookmark_util')->getBookmark(
+                $page,
+                $filterForm,
+                $this->getUser()->getId()? $this->getUser()->getId() : null,
+            );
+        );
     }
 
     /**
