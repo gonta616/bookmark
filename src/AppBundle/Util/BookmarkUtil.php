@@ -12,8 +12,10 @@ class BookmarkUtil
 {
     private $em;
     private $parameters;
+    private $pagenator;
+    private $fbu;
 
-    public function __construct($parameters, EntityManager $entityManager)
+    public function __construct($parameters, EntityManager $entityManager,Paginator $paginator, FilterBuilderUpdater $fbu)
     {
         $this->parameters = $parameters;
         $this->em = $entityManager;
@@ -32,17 +34,17 @@ class BookmarkUtil
                     '__root__'  => 'b',
                     'b.words' => 'w',
                     'b.terms' => 't',
-                    'b.user' => 'u',
-                ));
-                $this->fbu->addFilterConditions($filter, $qb);
+                    'b.user' => 'u'
+                )),
+                $this->fbu->addFilterConditions($filter, $qb),
             ));
-            return $this->pagenation->pagenate(
-                $qb->getQuery(),
-                $page,
-                $this->parameters['partner_per_page']
-            );
         }
 
+        return $this->paginator->paginate(
+            $qb->getQuery(),
+            $page,
+            $this->parameters['bookmark_per_page']
+        );
     }
 
     public function post($bookmark)

@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\BookmarkRepository")
  * @ExclusionPolicy("all")
  */
 class Bookmark
@@ -44,7 +45,7 @@ class Bookmark
     protected $terms;
 
     /**
-     * @ORM\OneToMany(targetEntity="Word" , mappedBy="item", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Word" , mappedBy="bookmark", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     protected $words;
 
@@ -261,7 +262,6 @@ class Bookmark
 
         return $this;
     }
-
 
     /**
      * Get the value of Published Date

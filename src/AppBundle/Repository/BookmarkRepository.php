@@ -14,7 +14,7 @@ class BookmarkRepository extends EntityRepository
             ->leftJoin('b.words', 'w')
             ->leftJoin('b.terms', 't')
             ->leftJoin('b.user', 'u')
-            ->orderBy('b.publishDate', 'DESC')
+            ->orderBy('b.publishedDate', 'DESC')
         ;
 
         if(!empty($user_id))
