@@ -1,0 +1,50 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-12 text-center">
+            <form action="{{ path("fos_user_security_check") }}" method="post">
+                {% if csrf_token %}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                {% endif %}
+                <div class="social-buttons btn-group">
+                    <a href="#" class="btn btn-block btn-fb"><i class="fa fa-facebook"></i> Facebookで新規登録/ログイン</a>
+                    <a href="#" class="btn btn-block btn-tw"><i class="fa fa-twitter"></i> Twitterで新規登録/ログイン</a>
+                    <a href="#" class="btn btn-block btn-gh"><i class="fa fa-github"></i> Githubで新規登録/ログイン</a>
+                </div>
+
+                <div class="form-group">
+                    <label class="sr-only" for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="_username" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                     <label class="sr-only" for="password">Password</label>
+                     <input type="password" class="form-control" id="password" placeholder="Password" id="password" name="_password" required>
+                     <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                     <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                     <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                </div>
+                <div class="form-group">
+                     <button type="submit" id="_submit" name="_submit" class="btn btn-primary btn-block">Sign in</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock fos_user_content %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+        '@AppBundle/Resources/public/app/css/user/index.css'
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
