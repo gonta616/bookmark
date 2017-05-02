@@ -3,6 +3,8 @@ body {
     background-color: #fafafa!important;
 }
 
+a:hover { text-decoration: none; }
+
 .max-width {
     width: 1024px;
     box-sizing: border-box;

@@ -47,6 +47,29 @@ fos_user:
         address:        "%mailer_mail%"
         sender_name:    "%mailer_name%"
 
+hwi_oauth:
+    # list of names of the firewalls in which this bundle is active, this setting MUST be set
+    firewall_names: [secured_area]
+    connect:
+        account_connector: my.custom.user_provider
+    fosub:
+        username_iterations: 30
+        properties:
+            facebook:    facebook_id
+    resource_owners:
+        facebook:
+            type:                facebook
+            client_id:           %facebook_client_id%
+            client_secret:       %facebook_client_secret%
+            scope:               "email"
+            # options:
+            #     display: popup #dialog is optimized for popup window
+        github:
+            type:                github
+            client_id:           %github_client_id%
+            client_secret:       %github_client_secret%
+            scope:               'user:email,public_repo'
+
 # FOSRestBundle
 fos_rest:
     routing_loader:
@@ -73,6 +96,8 @@ knp_paginator:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        facebook_client_id: "%facebook_client_id%"
 
 # pagenation
 knp_paginator:

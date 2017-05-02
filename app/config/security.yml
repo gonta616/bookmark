@@ -12,7 +12,7 @@ security:
     providers:
         fos_userbundle:
             id: fos_user.user_provider.username
-            
+
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
@@ -29,6 +29,20 @@ security:
 
             logout:       true
             anonymous:    true
+        secured_area:
+            anonymous: ~
+            oauth:
+                resource_owners:
+                    facebook:           "/login/check-facebook"
+                    # google:             "/login/check-google"
+                    # my_custom_provider: "/login/check-custom"
+                    github:          "/login/check-github"
+                login_path:        /login
+                use_forward:       false
+                failure_path:      /login
+
+                oauth_user_provider:
+                    service: my.oauth_aware.user_provider.service
             # activate different ways to authenticate
 
             # http_basic: ~
@@ -40,4 +54,5 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login/check-facebook, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
