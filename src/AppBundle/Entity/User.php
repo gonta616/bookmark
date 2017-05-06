@@ -18,32 +18,28 @@ class User extends BaseUser
      */
     protected $id;
 
-    /**
-     * @ORM\Column(name="facebook_id", type="string", length=255, nullable=true)
-     */
-    private $facebookId;
+    /** @ORM\Column(name="facebook_id", type="string", length=255, nullable=true) */
+    protected $facebook_id;
 
-    private $facebookAccessToken;
+    /** @ORM\Column(name="facebook_access_token", type="string", length=255, nullable=true) */
+    protected $facebook_access_token;
+
+    /** @ORM\Column(name="google_id", type="string", length=255, nullable=true) */
+    protected $google_id;
+
+    /** @ORM\Column(name="google_access_token", type="string", length=255, nullable=true) */
+    protected $google_access_token;
+
+    /** @ORM\Column(name="github_id", type="string", length=255, nullable=true) */
+    protected $github_id;
+
+    /** @ORM\Column(name="github_access_token", type="string", length=255, nullable=true) */
+    protected $github_access_token;
 
     /**
      * @ORM\OneToMany(targetEntity="Bookmark" , mappedBy="user", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     protected $bookmarks;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Item" , mappedBy="user", cascade={"persist", "remove"}, orphanRemoval=true)
-     */
-    protected $items;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Comment" , mappedBy="user", cascade={"persist", "remove"}, orphanRemoval=true)
-     */
-    protected $commnets;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Request" , mappedBy="user", cascade={"persist", "remove"}, orphanRemoval=true)
-     */
-    protected $requests;
 
     /**
      * Get the value of Id
@@ -68,79 +64,7 @@ class User extends BaseUser
 
         return $this;
     }
-
-    /**
-     * Get the value of Item
-     *
-     * @return mixed
-     */
-    public function getItem()
-    {
-        return $this->item;
-    }
-
-    /**
-     * Set the value of Item
-     *
-     * @param mixed item
-     *
-     * @return self
-     */
-    public function setItem($item)
-    {
-        $this->item = $item;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of Commnets
-     *
-     * @return mixed
-     */
-    public function getCommnets()
-    {
-        return $this->commnets;
-    }
-
-    /**
-     * Set the value of Commnets
-     *
-     * @param mixed commnets
-     *
-     * @return self
-     */
-    public function setCommnets($commnets)
-    {
-        $this->commnets = $commnets;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of Requests
-     *
-     * @return mixed
-     */
-    public function getRequests()
-    {
-        return $this->requests;
-    }
-
-    /**
-     * Set the value of Requests
-     *
-     * @param mixed requests
-     *
-     * @return self
-     */
-    public function setRequests($requests)
-    {
-        $this->requests = $requests;
-
-        return $this;
-    }
-
+    
     /**
      * Get the value of Bookmarks
      *
@@ -165,6 +89,7 @@ class User extends BaseUser
         return $this;
     }
 
+
     /**
      * Get the value of Facebook Id
      *
@@ -172,19 +97,19 @@ class User extends BaseUser
      */
     public function getFacebookId()
     {
-        return $this->facebookId;
+        return $this->facebook_id;
     }
 
     /**
      * Set the value of Facebook Id
      *
-     * @param mixed facebookId
+     * @param mixed facebook_id
      *
      * @return self
      */
-    public function setFacebookId($facebookId)
+    public function setFacebookId($facebook_id)
     {
-        $this->facebookId = $facebookId;
+        $this->facebook_id = $facebook_id;
 
         return $this;
     }
@@ -196,43 +121,116 @@ class User extends BaseUser
      */
     public function getFacebookAccessToken()
     {
-        return $this->facebookAccessToken;
+        return $this->facebook_access_token;
     }
 
     /**
      * Set the value of Facebook Access Token
      *
-     * @param mixed facebookAccessToken
+     * @param mixed facebook_access_token
      *
      * @return self
      */
-    public function setFacebookAccessToken($facebookAccessToken)
+    public function setFacebookAccessToken($facebook_access_token)
     {
-        $this->facebookAccessToken = $facebookAccessToken;
+        $this->facebook_access_token = $facebook_access_token;
 
         return $this;
     }
 
     /**
-     * Get the value of Items
+     * Get the value of Google Id
      *
      * @return mixed
      */
-    public function getItems()
+    public function getGoogleId()
     {
-        return $this->items;
+        return $this->google_id;
     }
 
     /**
-     * Set the value of Items
+     * Set the value of Google Id
      *
-     * @param mixed items
+     * @param mixed google_id
      *
      * @return self
      */
-    public function setItems($items)
+    public function setGoogleId($google_id)
     {
-        $this->items = $items;
+        $this->google_id = $google_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Google Access Token
+     *
+     * @return mixed
+     */
+    public function getGoogleAccessToken()
+    {
+        return $this->google_access_token;
+    }
+
+    /**
+     * Set the value of Google Access Token
+     *
+     * @param mixed google_access_token
+     *
+     * @return self
+     */
+    public function setGoogleAccessToken($google_access_token)
+    {
+        $this->google_access_token = $google_access_token;
+
+        return $this;
+    }
+
+
+    /**
+     * Get the value of Github Id
+     *
+     * @return mixed
+     */
+    public function getGithubId()
+    {
+        return $this->github_id;
+    }
+
+    /**
+     * Set the value of Github Id
+     *
+     * @param mixed github_id
+     *
+     * @return self
+     */
+    public function setGithubId($github_id)
+    {
+        $this->github_id = $github_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Github Access Token
+     *
+     * @return mixed
+     */
+    public function getGithubAccessToken()
+    {
+        return $this->github_access_token;
+    }
+
+    /**
+     * Set the value of Github Access Token
+     *
+     * @param mixed github_access_token
+     *
+     * @return self
+     */
+    public function setGithubAccessToken($github_access_token)
+    {
+        $this->github_access_token = $github_access_token;
 
         return $this;
     }

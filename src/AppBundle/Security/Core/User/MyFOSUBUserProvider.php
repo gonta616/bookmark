@@ -4,6 +4,7 @@ namespace AppBundle\Security\Core\User;
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
 use HWI\Bundle\OAuthBundle\Security\Core\User\FOSUBUserProvider as BaseFOSUBProvider;
 use Symfony\Component\Security\Core\User\UserInterface;
+use AppBundle\Entity\User;
 
 class MyFOSUBUserProvider extends BaseFOSUBProvider
 {

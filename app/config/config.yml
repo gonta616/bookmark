@@ -49,26 +49,37 @@ fos_user:
 
 hwi_oauth:
     # list of names of the firewalls in which this bundle is active, this setting MUST be set
-    firewall_names: [secured_area]
+    firewall_names: [main]
     connect:
-        account_connector: my.custom.user_provider
+        account_connector: my_user_provider
     fosub:
         username_iterations: 30
         properties:
             facebook:    facebook_id
+            github:      github_id
     resource_owners:
         facebook:
             type:                facebook
             client_id:           %facebook_client_id%
             client_secret:       %facebook_client_secret%
-            scope:               "email"
+            scope:               ""
             # options:
             #     display: popup #dialog is optimized for popup window
+        google:
+            type:                google
+            client_id:           "%google_client_id%"
+            client_secret:       "%google_client_secret%"
+            scope:               "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
+
         github:
             type:                github
             client_id:           %github_client_id%
             client_secret:       %github_client_secret%
             scope:               'user:email,public_repo'
+
+    http_client:
+        verify_peer:   true
+        ignore_errors: true
 
 # FOSRestBundle
 fos_rest:
