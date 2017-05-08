@@ -12,18 +12,15 @@
     <div class="col-md-3">
         {{ form_start(form) }}
         <div class="form-group">
-          <label for="url">Url</label>
-          <input id="url" type="text" class="form-control" placeholder="">
+          {{form_row(form.url)}}
         </div>
 
         <div class="form-group">
-          <label for="words"></label>
-          <input id="words" type="text" class="form-control" placeholder="">
+            {{form_row(form.words)}}
         </div>
 
         <div class="form-group">
-          <label for="tags"></label>
-          <input id="tags" type="text" class="form-control" placeholder="">
+            {{form_row(form.terms)}}
         </div>
 
         <div class="form-group">
