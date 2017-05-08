@@ -18,15 +18,15 @@ class BookmarkType extends AbstractType
             ->add('url', null, array(
                 'label' => 'bookmark.url'
             ))
-            ->add('impression', null, array(
-                'label' => 'bookmark.impression'
-            ))
-            ->add('terms', EntityType::class, array(
-                'label'         => 'bookmark.terms',
-                'choice_label'  => 'id',
-                'multiple'      => true,
+            ->add('terms', CollectionType::class, array(
+                'entry_type' => TermType::class,
+                'allow_add'     => true,
+                'allow_delete'  => true,
+                'prototype'     => true,
                 'required'      => false,
-                'class'         => 'AppBundle:Term'
+                'attr'          => array(
+                    'class' => 'term-collection',
+                ),
             ))
             ->add('words', CollectionType::class, array(
                 'entry_type' => WordType::class,

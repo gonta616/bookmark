@@ -35,6 +35,9 @@ assetic:
             inputs:
                 - '@jquery_js'
                 - '@bootstrap_js'
+        reframe_js:
+            inputs: '%kernel.root_dir%/../bower_components/reframe.js/dist/reframe.min.js'
+
         #font font_awesome
         font_awesome_css:
             inputs: '%kernel.root_dir%/../bower_components/font-awesome/css/font-awesome.css'

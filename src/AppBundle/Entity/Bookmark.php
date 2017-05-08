@@ -27,17 +27,7 @@ class Bookmark
     /**
      * @ORM\Column(type="string", length=255)
      */
-    protected $title;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     protected $url;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    protected $impression;
 
     /**
      * @ORM\ManyToMany(targetEntity="Term", inversedBy="bookmarks")
@@ -90,30 +80,6 @@ class Bookmark
     public function setId($id)
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of Title
-     *
-     * @return mixed
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set the value of Title
-     *
-     * @param mixed title
-     *
-     * @return self
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
 
         return $this;
     }
@@ -186,30 +152,6 @@ class Bookmark
     public function setUser($user)
     {
         $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of Impression
-     *
-     * @return mixed
-     */
-    public function getImpression()
-    {
-        return $this->impression;
-    }
-
-    /**
-     * Set the value of Impression
-     *
-     * @param mixed impression
-     *
-     * @return self
-     */
-    public function setImpression($impression)
-    {
-        $this->impression = $impression;
 
         return $this;
     }

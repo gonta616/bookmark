@@ -1,15 +1,45 @@
 {% extends '@App/base.html.twig' %}
 
 {% block content %}
-    {{ form_start(form) }}
+<div class="container-fluid">
+    <div class="col-md-9">
+        <div class="row">
+            <iframe width="100%" height="100%" src="https://www.w3schools.com">
+                <p>Your browser does not support iframes.</p>
+            </iframe>
+        </div>
+    </div>
+    <div class="col-md-3">
+        {{ form_start(form) }}
+        <div class="form-group">
+          <label for="url">Url</label>
+          <input id="url" type="text" class="form-control" placeholder="">
+        </div>
 
-    {{ form_end(form) }}
+        <div class="form-group">
+          <label for="words"></label>
+          <input id="words" type="text" class="form-control" placeholder="">
+        </div>
+
+        <div class="form-group">
+          <label for="tags"></label>
+          <input id="tags" type="text" class="form-control" placeholder="">
+        </div>
+
+        <div class="form-group">
+            <div class="navbar-fixed-bottom">
+                <button type="button" name="button">保存</button>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+</div>
 {% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
     {% stylesheets
-        '@AppBundle/Resources/public/app/css/draft/index.css'
+        '@AppBundle/Resources/public/app/css/bookmark/form.css'
     %}
         <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
@@ -18,7 +48,8 @@
 {% block javascript %}
     {{ parent() }}
     {% javascripts
-        '@AppBundle/Resources/public/app/js/draft/index.js'
+        '@reframe_js'
+        '@AppBundle/Resources/public/app/js/bookmark/form.js'
     %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}

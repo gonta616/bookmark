@@ -1,6 +1,6 @@
 {% extends '@App/base.html.twig' %}
 
-{% block content %}
+{% block test %}
 <div class="max-width">
     <div class="row">
         <div class="col-md-8 col-sm-12">
@@ -30,7 +30,7 @@
 {% block stylesheets %}
     {{ parent() }}
     {% stylesheets
-        '@AppBundle/Resources/public/app/css/draft/index.css'
+        '@AppBundle/Resources/public/app/css/bookmark/index.css'
     %}
         <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
@@ -39,7 +39,7 @@
 {% block javascript %}
     {{ parent() }}
     {% javascripts
-        '@AppBundle/Resources/public/app/js/draft/index.js'
+        '@AppBundle/Resources/public/app/js/bookmark/index.js'
     %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
