@@ -1,6 +1,5 @@
 $(document).ready(function(){
-    var width = $(window).width();
-    var heigth = $(window).height();
+
     $('iframe').width($(window).width());
     $('iframe').height($(window).height());
     $('iframe').reframe();
@@ -15,4 +14,6 @@ $(document).ready(function(){
             event.preventDefault();
         }
     });
+    $('.term-collection').collection();
+    $('.word-collection').collection();
 });
