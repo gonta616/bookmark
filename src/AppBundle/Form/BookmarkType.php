@@ -16,10 +16,13 @@ class BookmarkType extends AbstractType
     {
         $builder
             ->add('url', null, array(
-                'label' => 'bookmark.url'
+                'label'         => 'bookmark.url',
+                'attr'          => array(
+                    'class'     => 'url'
+                ),
             ))
             ->add('terms', CollectionType::class, array(
-                'entry_type' => TermType::class,
+                'entry_type'    => TermType::class,
                 'allow_add'     => true,
                 'allow_delete'  => true,
                 'prototype'     => true,
