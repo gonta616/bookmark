@@ -25,7 +25,7 @@
         </div>
 
         <div class="form-group">
-            {{form_widget(form.save)}}            
+            {{form_widget(form.save)}}
         </div>
         {{ form_end(form) }}
     </div>
@@ -36,6 +36,8 @@
     {{ parent() }}
     {% stylesheets
         '@AppBundle/Resources/public/app/css/bookmark/form.css'
+        '@select2_css'
+        '@select2_bootstrap_theme'
     %}
         <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
@@ -46,6 +48,7 @@
     {% javascripts
         '@reframe_js'
         "@symfony_collection_js"
+        '@select2_full_js'
         '@AppBundle/Resources/public/app/js/bookmark/form.js'
     %}
         <script type="text/javascript" src="{{ asset_url }}"></script>

@@ -21,16 +21,13 @@ class BookmarkType extends AbstractType
                     'class'     => 'url'
                 ),
             ))
-            ->add('terms', CollectionType::class, array(
-                'entry_type'    => TermType::class,
-                'allow_add'     => true,
-                'allow_delete'  => true,
-                'prototype'     => true,
-                'required'      => false,
-                'attr'          => array(
-                    'class' => 'term-collection',
-                ),
+            ->add('terms', EntityType::class, array(
+                'class'         => 'AppBundle:Term',
+                'label'         => 'bookmark.term',
+                'choice_label'  => 'name',
+                'multiple'      => true,
             ))
+
             ->add('words', CollectionType::class, array(
                 'entry_type' => WordType::class,
                 'allow_add'     => true,

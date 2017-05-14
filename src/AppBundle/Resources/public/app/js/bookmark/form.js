@@ -5,14 +5,14 @@ $(document).ready(function(){
     $('iframe').height($(window).height());
     $('iframe').reframe();
 
-    // $('.url').on('change', function(event){
-    //     console.log(event.value);
-    // });
-
+    // url
     $('.url').change(function(event){
         console.log(event.target.value);
         $('iframe').attr('src', 'http://symfony-collection.fuz.org/symfony3/options/fadeInFadeOut');
     });
+
+    // terms
+    $('#bookmark_terms').select2();
 
     $('.cd-btn').on('click', function(event){
         event.preventDefault();
