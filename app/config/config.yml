@@ -109,6 +109,8 @@ twig:
     strict_variables: "%kernel.debug%"
     globals:
         facebook_client_id: "%facebook_client_id%"
+    form_themes:
+        - 'bootstrap_3_layout.html.twig'
 
 # pagenation
 knp_paginator:
