@@ -37,6 +37,11 @@ class Term
     protected $name;
 
     /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="terms")
+     */
+    protected $user;
+
+    /**
      * @ORM\ManyToMany(targetEntity="Bookmark", mappedBy="terms")
      */
     private $bookmarks;
@@ -114,6 +119,55 @@ class Term
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+
+    /**
+     * Get the value of User
+     *
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set the value of User
+     *
+     * @param mixed user
+     *
+     * @return self
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Bookmarks
+     *
+     * @return mixed
+     */
+    public function getBookmarks()
+    {
+        return $this->bookmarks;
+    }
+
+    /**
+     * Set the value of Bookmarks
+     *
+     * @param mixed bookmarks
+     *
+     * @return self
+     */
+    public function setBookmarks($bookmarks)
+    {
+        $this->bookmarks = $bookmarks;
 
         return $this;
     }

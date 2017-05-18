@@ -11,8 +11,32 @@ $(document).ready(function(){
         $('iframe').attr('src', 'http://symfony-collection.fuz.org/symfony3/options/fadeInFadeOut');
     });
 
-    // terms
-    $('#bookmark_terms').select2();
+    // select2
+    $('#bookmark_terms').select2({
+        tags: true,
+        createTag: function(obj){
+            return {
+                id: obj.term,
+                text: obj.term,
+                isNewFlag: true,
+            };
+        }
+    }).on('select2:select', function(e){
+        if( e.params.data.isNewFlag ) {
+            var $select = $(this);
+
+            $.ajax({
+                type: 'POST',
+                url: Routing.generate(fosJsRouteLocalePrefix +'post_term'),
+                data: { value: e.params.data.text },
+                dataType: 'json',
+            }).done(function(json){
+                $select.find('[value="'+e.params.data.id+'"]' ).replaceWith('<option selected value="'+json.id+'">' + e.params.data.text + '</option>');
+            }).fail(function(data){
+                alert(data);
+            });
+        }
+    });
 
     $('.cd-btn').on('click', function(event){
         event.preventDefault();

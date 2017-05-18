@@ -68,3 +68,8 @@ bookmark:
     type:     rest
     resource: "@AppBundle/Controller/BookmarkApiController.php"
     prefix:   /api
+
+term:
+    type:     rest
+    resource: "@AppBundle/Controller/TermApiController.php"
+    prefix:   /api

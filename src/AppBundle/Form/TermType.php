@@ -20,7 +20,7 @@ class TermType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Word',
+            'data_class' => 'AppBundle\Entity\Term',
         ));
     }
 }

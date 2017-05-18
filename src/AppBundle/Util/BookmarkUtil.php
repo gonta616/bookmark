@@ -27,17 +27,14 @@ class BookmarkUtil
     {
         $qb = $this->em->getRepository('AppBundle:Bookmark')->getBookmarkQueryBuilder($user_id);
 
-        if (!empty($filter) && $filter->isValid())
-        {
+        if($filter->isValid()) {
             $this->fbu->setParts(array(
-                $this->fbu->setParts(array(
-                    '__root__'  => 'b',
-                    'b.words' => 'w',
-                    'b.terms' => 't',
-                    'b.user' => 'u'
-                )),
-                $this->fbu->addFilterConditions($filter, $qb),
+                '__root__'  => 'b',
+                'b.words' => 'w',
+                'b.terms' => 't',
+                'b.user' => 'u'
             ));
+            $this->fbu->addFilterConditions($filter, $qb);
         }
 
         return $this->paginator->paginate(
@@ -59,15 +56,15 @@ class BookmarkUtil
         return $bookmark;
     }
 
-    public function patch($item)
+    public function patch($bookmark)
     {
         foreach ($bookmark->getWords() as $word) {
             $word->setBookmark($bookmark);
         }
 
-        $this->em->persist($item);
+        $this->em->persist($bookmark);
         $this->em->flush();
 
-        return $item;
+        return $bookmark;
     }
 }

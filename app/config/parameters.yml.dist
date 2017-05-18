@@ -30,6 +30,7 @@ parameters:
     item_per_page: 15
     draft_per_page: 10
     bookmark_per_page: 10
+    term_per_page: 10
     my_user_provider.class: AppBundle\Security\FOSUBUserProvider
     facebook_client_id: 123456
     facebook_client_secret: 123456

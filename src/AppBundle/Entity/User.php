@@ -42,6 +42,11 @@ class User extends BaseUser
     protected $bookmarks;
 
     /**
+     * @ORM\OneToMany(targetEntity="Term" , mappedBy="user", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    protected $terms;
+
+    /**
      * Get the value of Id
      *
      * @return mixed
@@ -64,7 +69,7 @@ class User extends BaseUser
 
         return $this;
     }
-    
+
     /**
      * Get the value of Bookmarks
      *
