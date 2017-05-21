@@ -36,7 +36,7 @@ class BookmarkController extends Controller
     }
 
     /**
-     * @Route("/create")
+     * @Route("/create", name="bookmark_create")
      * @Method("GET")
      * @Template
      */
@@ -49,7 +49,7 @@ class BookmarkController extends Controller
     }
 
     /**
-     * @Route("/update/{bookmark}")
+     * @Route("/update/{bookmark}", name="bookmark_update")
      * @Method("GET")
      * @Template
      */

@@ -27,7 +27,7 @@ $(document).ready(function(){
 
             $.ajax({
                 type: 'POST',
-                url: Routing.generate(fosJsRouteLocalePrefix +'post_term'),
+                url: Routing.generate('post_term'),
                 data: { value: e.params.data.text },
                 dataType: 'json',
             }).done(function(json){

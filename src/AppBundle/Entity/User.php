@@ -240,4 +240,29 @@ class User extends BaseUser
         return $this;
     }
 
+
+    /**
+     * Get the value of Terms
+     *
+     * @return mixed
+     */
+    public function getTerms()
+    {
+        return $this->terms;
+    }
+
+    /**
+     * Set the value of Terms
+     *
+     * @param mixed terms
+     *
+     * @return self
+     */
+    public function setTerms($terms)
+    {
+        $this->terms = $terms;
+
+        return $this;
+    }
+
 }

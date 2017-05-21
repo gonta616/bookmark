@@ -22,6 +22,12 @@
     "reframe.js": "^1.0.4",
     "symfony-collection": "^2.0.5",
     "select2": "^4.0.3",
-    "select2-bootstrap-theme": "^0.1.0-beta.10"
+    "select2-bootstrap-theme": "^0.1.0-beta.10",
+    "sweetalert": "^1.1.3",
+    "blockUI": "*",
+    "jquery-pjax": "^1.9.6",
+    "velocity": "^1.5.0",
+    "jquery-slimscroll": "^1.3.8",
+    "verge": "^1.9.1"
   }
 }

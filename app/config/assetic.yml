@@ -36,6 +36,9 @@ assetic:
             inputs:
                 - '@jquery_js'
                 - '@bootstrap_js'
+                - '@blockUI_js'
+                - '@jquery_slimscroll_js'
+
         reframe_js:
             inputs: '%kernel.root_dir%/../bower_components/reframe.js/dist/reframe.min.js'
 
@@ -88,3 +91,7 @@ assetic:
 
         select2_full_js:
             inputs: '%kernel.root_dir%/../bower_components/select2/dist/js/select2.full.min.js'
+
+        #plugin verge
+        verge_js:
+            inputs: '%kernel.root_dir%/../bower_components/verge/src/verge.js'

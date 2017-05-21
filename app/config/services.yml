@@ -26,6 +26,13 @@ services:
             -
                 bookmark_per_page: "%bookmark_per_page%"
 
+    term_util:
+        class: AppBundle\Util\TermUtil
+        autowire: true
+        arguments:
+            -
+                term_per_page: "%term_per_page%"
+
     my.oauth_aware.user_provider.service:
         class: HWI\Bundle\OAuthBundle\Security\Core\User\FOSUBUserProvider
         arguments:
