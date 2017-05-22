@@ -17,7 +17,13 @@ class TermApiController extends FOSRestController
     public function postAction(Request $request)
     {
         $term = new Term();
-        $term->setName($request->get('name'));
+        $term->setName($request->get('value'));
+        $term->getTaxonomy($this->get('taxonomy_util')->getTaxonomyByName($request->get('taxonomy_name')));
+
+        if ($this->getUser())
+        {
+            $term->setUser($this->getUser());
+        }
         return $this->get('term_util')->post($term);
     }
 }

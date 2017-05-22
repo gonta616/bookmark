@@ -16,18 +16,20 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Taxonomy
 {
+    const TYPE_CATEGORY = 1;
+    const TYPE_SYSTEM = 2;
+    const TYPE_TAG = 3;
+
     /**
      * @ORM\Id
      * @ORM\Column(type="bigint")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Expose
      */
     protected $id;
 
     /** @ORM\Column(type="string", length=128)
      * @Assert\Length(min = 1, max = 128)
      * @Assert\NotBlank(message="form.not_blank")
-     * @Expose
      */
     protected $name;
 
@@ -36,6 +38,11 @@ class Taxonomy
      * @ORM\OneToMany(targetEntity="Term", mappedBy="taxonomy", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     protected $terms;
+
+    /**
+     * @ORM\Column(name="type", type="integer")
+     */
+    protected $type=Taxonomy::TYPE_TAG;
 
     public function __construct()
     {
@@ -110,6 +117,30 @@ class Taxonomy
     public function setTerms(Collection $terms)
     {
         $this->terms = $terms;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Type
+     *
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set the value of Type
+     *
+     * @param mixed type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
 
         return $this;
     }

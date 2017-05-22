@@ -13,6 +13,21 @@ use FOS\RestBundle\Controller\Annotations\RouteResource;
  */
  class BookmarkApiController extends FOSRestController
  {
+     public function postUrlAction(Request $request)
+     {
+         $bookmark = new Bookmark();
+         $form = $this->createForm(BookmarkUrlType::class, $bookmark, array('method' => "POST"));
+         $form->handleRequest($request);
+
+         if ($form->isValid()) {
+             $bookmark->setUser($this->getUser());
+             $this->get('bookmark_util')->post($bookmark);
+         }
+         else {
+             return $form;
+         }         
+     }
+
      public function postAction(Request $request)
      {
          $bookmark = new Bookmark();

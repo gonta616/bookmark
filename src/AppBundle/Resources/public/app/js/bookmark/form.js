@@ -28,7 +28,10 @@ $(document).ready(function(){
             $.ajax({
                 type: 'POST',
                 url: Routing.generate('post_term'),
-                data: { value: e.params.data.text },
+                data: {
+                    value: e.params.data.text,
+                    taxonomy_name: 'tag'
+                },
                 dataType: 'json',
             }).done(function(json){
                 $select.find('[value="'+e.params.data.id+'"]' ).replaceWith('<option selected value="'+json.id+'">' + e.params.data.text + '</option>');

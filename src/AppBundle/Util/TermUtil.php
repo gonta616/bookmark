@@ -44,7 +44,6 @@ class TermUtil
 
     public function post($term)
     {
-        dump($term);
         $this->em->persist($term);
         $this->em->flush();
 

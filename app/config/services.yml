@@ -33,6 +33,10 @@ services:
             -
                 term_per_page: "%term_per_page%"
 
+    taxonomy_util:
+        class: AppBundle\Util\TaxonomyUtil
+        autowire: true
+
     my.oauth_aware.user_provider.service:
         class: HWI\Bundle\OAuthBundle\Security\Core\User\FOSUBUserProvider
         arguments:
