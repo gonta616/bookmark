@@ -120,7 +120,7 @@ knp_paginator:
 
 # FOS JS ROUTING
 fos_js_routing:
-    routes_to_expose: ['post_term', 'bookmark_create']
+    routes_to_expose: ['post_term', 'bookmark_index', 'bookmark_create']
 
 # Doctrine Configuration
 doctrine:

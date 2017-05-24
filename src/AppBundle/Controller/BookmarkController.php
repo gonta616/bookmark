@@ -25,7 +25,12 @@ class BookmarkController extends Controller
     public function indexAction(Request $request, $page=1)
     {
         $filterForm = $this->createForm(BookmarkFilterType::class,null,array('method'=>'GET'))->handleRequest($request);
+        $postForm = $this->createForm(BookmarkType::class, new Bookmark(), array(
+            'action' => $this->generateUrl('post_bookmark'),
+            'method'=>'POST'
+        ));
         return array(
+            'postForm' => $postForm->createView(),
             'filterForm'=>$filterForm->createView(),
             'bookmarks' => $this->get('bookmark_util')->getBookmark(
                 $page,

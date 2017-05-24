@@ -1,5 +1,45 @@
 {% extends '@App/base.html.twig' %}
 
+{% block nav_content %}
+<ul class="nav navbar-nav">
+{{form_start(postForm, {'attr': {'id': 'form-bookmark'}}) }}
+    {{form_row(postForm.url)}}
+    {{ form_row(postForm.save) }}
+{{form_end(postForm) }}
+</ul>
+{% endblock %}
+
+{% block content %}
+<div class="content" data-pjax-container>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="table-scrollable">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if bookmarks|length > 0 %}
+                        {% for bookmark in bookmarks %}
+                        <tr data-id="{{ bookmark.id }}">
+                            <td>{{bookmark.url}}</td>
+
+
+                        </tr>
+                        {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% for bookmark in bookmarks %}
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
 {% block test %}
 <div class="max-width">
     <div class="row">

@@ -47,6 +47,8 @@
                             </form>
                         </li>
                     </ul>
+                    {% block nav_content %}
+                    {% endblock %}
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <div class="dropdown">
@@ -97,13 +99,11 @@
             </div>
         </nav>
     </header>
-    {% block content_wrapper %}
     <main>
         <div class="content">
             {% block content %}{% endblock %}
         </div>
     </main>
-    {% endblock %}
 
     <footer>
     </footer>

@@ -24,6 +24,7 @@ class BookmarkType extends AbstractType
             ->add('terms', EntityType::class, array(
                 'class'         => 'AppBundle:Term',
                 'label'         => 'bookmark.term',
+                'required'      => false,
                 'choice_label'  => 'name',
                 'multiple'      => true,
             ))
