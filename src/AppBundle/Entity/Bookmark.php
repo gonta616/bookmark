@@ -56,6 +56,7 @@ class Bookmark
 
     public function __construct()
     {
+        $this->publishedDate = new \DateTime();
         $this->terms = new ArrayCollection();
         $this->words = new ArrayCollection();
     }

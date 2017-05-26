@@ -34,6 +34,7 @@ use FOS\RestBundle\Controller\Annotations\RouteResource;
          $form->handleRequest($request);
 
          if ($form->isValid()){
+             $bookmark->setUpdateDate(new \DateTime());
              $this->get('bookmark_util')->post($bookmark);
          }
          else {

@@ -29,7 +29,7 @@ function submitBookmark(trigger, event){
         contentType: false,
         success: function(data, textStatus, jqXHR)
         {
-            window.location = Routing.generate('bookmark_index');
+            window.location = Routing.generate('bookmark_index', {page:1});
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
