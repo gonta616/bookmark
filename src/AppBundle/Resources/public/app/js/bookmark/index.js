@@ -1,11 +1,17 @@
 $(document).ready(function(){
+
+
+
     /**********    Submit Event    *********/
     var postForm = $('#form-bookmark');
     postForm.submit(function(event){
         event.preventDefault();
         submitBookmark(this, event);
     });
+
 });
+
+
 
 function submitBookmark(trigger, event){
     event.preventDefault();

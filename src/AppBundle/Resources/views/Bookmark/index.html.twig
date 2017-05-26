@@ -2,14 +2,17 @@
 
 {% block nav_content %}
 <ul class="nav navbar-nav">
-{{form_start(postForm, {'attr': {'id': 'form-bookmark'}}) }}
-    {{form_row(postForm.url)}}
-    {{ form_row(postForm.save) }}
-{{form_end(postForm) }}
+    <li class="navbar-form">
+        <button type="button" name="button" class="btn btn-default" data-toggle="modal" data-target="#bookmarkModal">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </button>
+    </li>
 </ul>
 {% endblock %}
 
 {% block content %}
+{{dump(bookmarks)}}
+
 <div class="content" data-pjax-container>
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
@@ -32,40 +35,33 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-        {% for bookmark in bookmarks %}
-
-        {% endfor %}
-    </div>
-</div>
-{% endblock %}
-
-{% block test %}
-<div class="max-width">
-    <div class="row">
-        <div class="col-md-8 col-sm-12">
-            {% if bookmarks|length > 0 %}
-            <ul>
-                {% for bookmark in bookmarks %}
-                <div class="card">
-                    <div class="card-block">
-                        <p class="card-text">This image is in the middle</p>
-                    </div>
-                    <!-- <img src="/images/pathToYourImage.png" alt="Card image"> -->
-                    <div class="card-block">
-                        <p class="card-text">of a card.</p>
-                    </div>
-                </div>
-                {% endfor %}
-            </ul>
-            {% endif %}
-        </div>
-        <div class="col-md-4">
-
+            {{ knp_pagination_render(bookmarks) }}
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div id="bookmarkModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal Content -->
+        {{form_start(postForm, {'attr': {'id': 'form-bookmark' }} )}}
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">DevEnにアイテムを保存</h4>
+            </div>
+            <div class="modal-body">
+                {{form_row(postForm.url)}}
+            </div>
+            <div class="modal-footer">
+                {{ form_row(postForm.save) }}
+            </div>
+        </div>
+        {{form_end(postForm)}}
+    </div>
+</div>
+
 {% endblock %}
+
 
 {% block stylesheets %}
     {{ parent() }}

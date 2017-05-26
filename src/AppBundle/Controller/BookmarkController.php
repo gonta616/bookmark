@@ -12,13 +12,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-/**
- * @Route("/bookmark")
- */
 class BookmarkController extends Controller
 {
     /**
-     * @Route("/", name="bookmark_index")
+     * @Route("/bookmark/{page}", name="bookmark_index", requirements={"page" = "\d+"})
      * @Method("GET")
      * @Template
      */
@@ -29,6 +26,7 @@ class BookmarkController extends Controller
             'action' => $this->generateUrl('post_bookmark'),
             'method'=>'POST'
         ));
+
         return array(
             'postForm' => $postForm->createView(),
             'filterForm'=>$filterForm->createView(),
@@ -41,7 +39,7 @@ class BookmarkController extends Controller
     }
 
     /**
-     * @Route("/create", name="bookmark_create")
+     * @Route("/bookmark/create", name="bookmark_create")
      * @Method("GET")
      * @Template
      */
@@ -54,7 +52,7 @@ class BookmarkController extends Controller
     }
 
     /**
-     * @Route("/update/{bookmark}", name="bookmark_update")
+     * @Route("/bookmark/update/{bookmark}", name="bookmark_update")
      * @Method("GET")
      * @Template
      */

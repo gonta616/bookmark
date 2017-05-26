@@ -36,7 +36,7 @@ class BookmarkUtil
             ));
             $this->fbu->addFilterConditions($filter, $qb);
         }
-
+        dump($page);
         return $this->paginator->paginate(
             $qb->getQuery(),
             $page,
