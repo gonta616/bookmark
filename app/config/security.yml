@@ -27,7 +27,8 @@ security:
                 # csrf_provider: form.csrf_provider
                 login_path: /login
                 check_path: /login_check
-
+                always_use_default_target_path: false
+                default_target_path: bookmark_index
             oauth:
                 resource_owners:
                     facebook:           "/login/check-facebook"
@@ -36,6 +37,7 @@ security:
                 login_path:        /login
                 # use_forward:       false
                 failure_path:      /login
+                default_target_path: bookmark_index
 
                 oauth_user_provider:
                     service: my_user_provider
