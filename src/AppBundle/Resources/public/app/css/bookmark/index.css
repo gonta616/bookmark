@@ -1,0 +1,20 @@
+.feed-img-wrapper {
+    align-items: center;
+}
+
+.feed-img {
+    width: 100px;
+}
+
+.tag-wrapper {
+    display: block;
+    background-color: #a6a6a6;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.tag {
+    color: #fff;
+    font-weight: 400;
+    margin: 4px 8px;
+}

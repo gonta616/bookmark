@@ -1,9 +1,22 @@
-<div class="card">
-  <div class="card-block">
-    <p class="card-text">This image is in the middle</p>
-  </div>
-  <img src="/images/pathToYourImage.png" alt="Card image">
-  <div class="card-block">
-    <p class="card-text">of a card.</p>
-  </div>
-</div>
+<tr data-id="{{ id }}">
+    <td>
+        <div class="feed-img-wrapper">
+            <img class="feed-img thumbnail" src="{{asset('/img/logo.png')}}" alt="">
+        </div>
+    </td>
+    <td>
+        <div class="container">
+            <h4>名前</h4>
+            <div>{{url}}</div>
+            <div>
+                {% for tag in tags %}
+                <div class="tag-wrapper d-inline-block">
+                    <div class="tag">
+                        <a href="#">タグ名</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </td>
+</tr>
