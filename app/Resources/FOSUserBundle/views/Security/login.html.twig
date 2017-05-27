@@ -4,45 +4,51 @@
 
 {% block fos_user_content %}
 
-{% if error %}
-    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {{dump(error)}}
-    {{dump(error.token)}}
-{% endif %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3 col-sm-12 text-center">
-            <form action="{{ path("fos_user_security_check") }}" method="post">
-                {{dump(csrf_token)}}
-                {% if csrf_token %}
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-                {% endif %}
-                <div class="social-buttons btn-group">
-                    <!-- <a href="#" class="btn btn-block btn-fb" onclick="fb_login();"><i class="fa fa-facebook"></i> Facebookで新規登録/ログイン</a> -->
-                    <a class="#" href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}">Facebook</a>
-                    <a class="#" href="{{ hwi_oauth_login_url('google') }}">Google</a>
-                    <a class="#" href="{{ hwi_oauth_login_url('github') }}">Github</a>
-                    <!-- <a href="#" class="btn btn-block btn-tw"><i class="fa fa-twitter"></i> Twitterで新規登録/ログイン</a> -->
-
-                </div>
-
-                <div class="form-group">
-                    <label class="sr-only" for="username">Username</label>
-                    <input type="text" class="form-control" id="username" name="_username" placeholder="Username" required>
-                </div>
-                <div class="form-group">
-                     <label class="sr-only" for="password">Password</label>
-                     <input type="password" class="form-control" id="password" placeholder="Password" id="password" name="_password" required>
-                     <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                     <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-                     <div class="help-block text-right"><a href="">Forget the password ?</a></div>
-                </div>
-                <div class="form-group">
-                     <button type="submit" id="_submit" name="_submit" class="btn btn-primary btn-block">Sign in</button>
-                </div>
-            </form>
-        </div>
+<div class="container-fluid content">
+    <div class="logo">
+        <h1>Dev English</h1>
+        <img src="{{ asset('/img/logo.png') }}" >
     </div>
+    <form action="{{ path("fos_user_security_check") }}" method="post">
+        {% if csrf_token %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        {% endif %}
+
+        <div class="social-buttons form-group">
+            <!-- <a href="#" class="btn btn-block btn-fb" onclick="fb_login();"><i class="fa fa-facebook"></i> Facebookで新規登録/ログイン</a> -->
+            <a class="btn btn-block btn-github" href="{{ hwi_oauth_login_url('github') }}">
+                <i class="fa fa-github">
+                    Github
+                </i>
+            </a>
+            <a class="btn btn-block btn-facebook" href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}">
+                <i class="fa fa-facebook">
+                    Facebook
+                </i>
+            </a>
+            <a class="btn btn-block btn-google" href="{{ hwi_oauth_login_url('google') }}">
+                <i class="fa fa-twitter">
+                    Google
+                </i>
+            </a>
+
+            <!-- <a href="#" class="btn btn-block btn-tw"><i class="fa fa-twitter"></i> Twitterで新規登録/ログイン</a> -->
+
+        </div>
+
+        <div class="form-group">
+            <label class="sr-only" for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="_username" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+             <label class="sr-only" for="password">Password</label>
+             <input type="password" class="form-control" id="password" placeholder="Password" id="password" name="_password" required>
+             <div class="help-block text-right"><a href="">{{ 'security.login.forgot.password'|trans }}</a></div>
+        </div>
+        <div class="form-group">
+             <button type="submit" id="_submit" name="_submit" class="btn btn-primary btn-block">Sign in</button>
+        </div>
+    </form>
 </div>
 {% endblock fos_user_content %}
 

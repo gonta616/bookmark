@@ -2,6 +2,11 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <title>Dev−English | Login</title>
         {% block stylesheets %}
         {% stylesheets
             '@font_awesome_css'
@@ -11,17 +16,7 @@
         {% endstylesheets %}
         {% endblock %}
     </head>
-    <body>
-        <div>
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                <a href="{{ path('fos_user_security_logout') }}">
-                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                </a>
-            {% else %}
-                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-            {% endif %}
-        </div>
+    <body class="login">
 
         {% if app.request.hasPreviousSession %}
             {% for type, messages in app.session.flashbag.all() %}
@@ -32,17 +27,17 @@
                 {% endfor %}
             {% endfor %}
         {% endif %}
-        test
-        <div>
-            {% block fos_user_content %}
-            {% endblock fos_user_content %}
-        </div>
+        <!-- BEGIN FORGOT PASSWORD FORM -->
+        {% block fos_user_content %}
+        {% endblock fos_user_content %}
+        <!-- END FORGOT PASSWORD FORM -->
+        
         {% block javascript %}
         {% javascripts
             "@template_js"
         %}
             <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
-        {% endblock %}        
+        {% endblock %}
     </body>
 </html>

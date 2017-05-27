@@ -1,27 +1,61 @@
 
 /****** LOGIN ******/
 
-.btn-fb {
+.login .content {
+    flex: 1;
+    margin: 20px auto 20px auto;
+    align-self: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.login .logo{
+    margin: 0 auto 20px auto !important;
+    padding: 15px;
+    text-align: center;
+}
+
+.login .logo img {
+    width: 128px;
+}
+
+.btn-facebook {
     color: #fff;
+    border-color: #293e69;
     background-color:#3b5998;
 }
-.btn-fb:hover{
+.btn-facebook:hover{
     color: #fff !important;
+    border-color: #293e69;
     background-color: #203768;
 }
-.btn-tw {
+.btn-twitter {
     color: #fff;
     background-color:#55acee;
 }
-.btn-tw:hover{
+.btn-twitter:hover{
     color: #fff !important;
     background-color:#3c89c4;
 }
-.btn-gh{
+.btn-github{
     color: #fff;
+    border-color: #1a1a1a;
     background-color :#242A2F;
 }
-.btn-gh:hover{
+.btn-github:hover{
     color: #fff !important;
+    border-color: #1a1a1a;
     background-color :#141616;
+}
+
+.btn-google{
+    color: #fff !important;
+    border-color: #a94335;
+    background-color :#c6594b;
+}
+
+.btn-google:hover{
+    color: #fff !important;
+    border-color: #a94335;
+    background-color :#ad5044;
 }

@@ -39,7 +39,9 @@ security:
 
                 oauth_user_provider:
                     service: my_user_provider
-            logout:       true
+            logout:
+                path: fos_user_security_logout
+                target: /login
             anonymous:    true
 
         login:
@@ -51,17 +53,19 @@ security:
                 path:     /
                 domain:   .%base_host%
 
-            # http_basic: ~
-            # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-
-            # form_login: ~
-            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
     access_control:
-        - { path: ^/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/, role: ROLE_USER }
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, role: ROLE_ADMIN }
 
     # access_control:
     #     - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-    #     - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-    #     - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    #     - { path: ^/login/check-github, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    #     - { path: ^/register$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    #     - { path: ^/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
     #     - { path: ^/admin/, role: ROLE_ADMIN }
+    #     - { path: ^/, role: ROLE_USER }
+
+    # access_control:
+    #     - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
