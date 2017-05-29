@@ -44,7 +44,8 @@
         "sp/bower-bundle": "dev-master",
         "hwi/oauth-bundle": "^0.5.3",
         "fabpot/goutte": "^3.2",
-        "ninsuo/symfony-collection": "^2.0"
+        "ninsuo/symfony-collection": "^2.0",
+        "eightpoints/guzzle-bundle": "^5.3"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Lexik\Bundle\FormFilterBundle\LexikFormFilterBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+            new EightPoints\Bundle\GuzzleBundle\GuzzleBundle(),
             new AppBundle\AppBundle(),
         ];
 

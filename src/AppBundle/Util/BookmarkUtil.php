@@ -2,11 +2,12 @@
 
 namespace AppBundle\Util;
 
-use Doctrine\ORM\EntityManager;
 use AppBundle\Entity\Bookmark;
-use Symfony\Component\Form\Form;
-use Knp\Component\Pager\Paginator;
+use Doctrine\ORM\EntityManager;
+use GuzzleHttp\Client;
 use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdater;
+use Knp\Component\Pager\Paginator;
+use Symfony\Component\Form\Form;
 
 class BookmarkUtil
 {
@@ -44,8 +45,17 @@ class BookmarkUtil
         );
     }
 
+    public function fetchDataFromUrl($url)
+    {
+        $client = new Client();
+        $res = $client->request('GET', $url);
+        dump('res', $res);
+        dump('body'. $res->getBody());
+    }
+
     public function post($bookmark)
     {
+        $this->fetchDataFromUrl($bookmark->getUrl());
         foreach ($bookmark->getWords() as $word) {
             $word->setBookmark($bookmark);
         }
