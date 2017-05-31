@@ -1,0 +1,27 @@
+liip_imagine:
+
+    resolvers:
+        default:
+            web_path:
+                web_root:  %kernel.root_dir%/../web
+                cache_prefix: media/cache
+    loaders:
+        default:
+            filesystem:
+                data_root: %kernel.root_dir%/../web/
+    data_loader: default
+    cache:  default
+    driver: gd
+    controller:
+        filter_action:          liip_imagine.controller:filterAction
+        filter_runtime_action:  liip_imagine.controller:filterRuntimeAction
+    filter_sets:
+        bookmark:
+            data_loader: filesystem
+        bookmark_100:
+            data_loader: filesystem
+            quality: 80
+            filters:
+                thumbnail:
+                    size: [40,40]
+                    mode: outbound

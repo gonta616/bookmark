@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: assetic.yml }
+    - { resource: liip.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -153,3 +154,25 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+# # AWS
+# aws:
+#     version: latest
+#     region: %aws_region%
+#     credentials:
+#         key: "%aws_key%"
+#         secret: "%aws_secret%"
+#     S3:
+#         version: '2006-03-01'
+
+# Gaufrette Bundle
+knp_gaufrette:
+    adapters:
+        local_adapter:
+            local:
+                directory: %kernel.root_dir%/../web/img
+                create:     true
+
+    filesystems:
+        local_fs:
+            adapter:    local_adapter

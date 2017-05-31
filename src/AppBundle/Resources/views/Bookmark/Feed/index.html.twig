@@ -1,7 +1,7 @@
 <tr data-id="{{ id }}">
     <td>
         <div class="feed-img-wrapper">
-            <img class="feed-img thumbnail" src="{{asset('/img/logo.png')}}" alt="">
+            <img class="feed-img thumbnail" src="{{asset('/img/logo.png') | imagine_filter('bookmark')}}" alt="">
         </div>
     </td>
     <td>

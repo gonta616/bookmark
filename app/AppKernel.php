@@ -25,6 +25,8 @@ class AppKernel extends Kernel
             new Lexik\Bundle\FormFilterBundle\LexikFormFilterBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new EightPoints\Bundle\GuzzleBundle\GuzzleBundle(),
+            new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
+            new Liip\ImagineBundle\LiipImagineBundle(),
             new AppBundle\AppBundle(),
         ];
 

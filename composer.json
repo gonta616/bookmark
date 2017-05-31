@@ -45,7 +45,9 @@
         "hwi/oauth-bundle": "^0.5.3",
         "fabpot/goutte": "^3.2",
         "ninsuo/symfony-collection": "^2.0",
-        "eightpoints/guzzle-bundle": "^5.3"
+        "eightpoints/guzzle-bundle": "^5.3",
+        "knplabs/knp-gaufrette-bundle": "^0.4.0",
+        "liip/imagine-bundle": "^1.8"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
