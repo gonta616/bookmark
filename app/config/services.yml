@@ -23,9 +23,8 @@ services:
         class: AppBundle\Util\BookmarkUtil
         autowire: true
         arguments:
-            -
-                bookmark_per_page: "%bookmark_per_page%"
-
+            - bookmark_per_page: "%bookmark_per_page%"
+            - "@knp_gaufrette.filesystem_map"
     term_util:
         class: AppBundle\Util\TermUtil
         autowire: true

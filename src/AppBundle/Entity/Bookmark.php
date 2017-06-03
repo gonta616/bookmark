@@ -27,6 +27,16 @@ class Bookmark
     /**
      * @ORM\Column(type="string", length=255)
      */
+    protected $title;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $description;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     protected $url;
 
     /**
@@ -84,6 +94,54 @@ class Bookmark
 
         return $this;
     }
+
+    /**
+     * Get the value of Title
+     *
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set the value of Title
+     *
+     * @param mixed title
+     *
+     * @return self
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Description
+     *
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set the value of Description
+     *
+     * @param mixed description
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }    
 
     /**
      * Get the value of Url
@@ -229,4 +287,5 @@ class Bookmark
 
         return $this;
     }
+
 }
