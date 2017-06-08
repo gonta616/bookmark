@@ -30,7 +30,7 @@ assetic:
         template_css:
             inputs:
                 - '%kernel.root_dir%/../bower_components/bootstrap/dist/css/bootstrap.css'
-                - '@AppBundle/Resources/public/base/css/index.css'
+                - '@AppBundle/Resources/public/base/css/style.css'
 
         template_js:
             inputs:
@@ -38,6 +38,8 @@ assetic:
                 - '@bootstrap_js'
                 - '@blockUI_js'
                 - '@jquery_slimscroll_js'
+                - '@AppBundle/Resources/public/base/js/plugins.js'
+                - '@AppBundle/Resources/public/base/js/functions.js'
 
         reframe_js:
             inputs: '%kernel.root_dir%/../bower_components/reframe.js/dist/reframe.min.js'

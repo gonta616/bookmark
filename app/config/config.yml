@@ -111,7 +111,12 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     globals:
-        facebook_client_id: "%facebook_client_id%"
+      parameters:
+        base_host: "%base_host%"
+        seo_properties: "%seo_properties%"
+
+
+
     form_themes:
         - 'bootstrap_3_layout.html.twig'
 

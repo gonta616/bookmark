@@ -43,3 +43,9 @@ parameters:
     aws_key:            aws_key_xxxxxxxxxxxxx
     aws_secret:         aws_secret_xxxxxxxxxxxxxxx
     aws_region:         aws_region_xxxxxxxxxxxxxxx
+    seo_properties:
+        title: 'Dev English'
+        description: '開発者が英語学習する際、英語の技術記事をストックしたり、シェアするためのサービスです。'
+        keywords: '英語, 開発, 英語記事'
+        cover: 'http://%base_host%/img/logo.png'
+        logo: 'http://%base_host%/img/logo.png'
